@@ -1,25 +1,24 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import ProductSlider from './components/ProductSlider';
-import ParallaxSection from './components/ParallaxSection';
-import FeaturedCollections from './components/FeaturedCollections';
-import TrendingProducts from './components/TrendingProducts';
-import FeatureHighlights from './components/FeatureHighlights';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import MensPage from './pages/MensPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main className="pt-16">
-        <ProductSlider />
-        <FeaturedCollections />
-        <ParallaxSection />
-        <TrendingProducts />
-        <FeatureHighlights />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-white">
+        <Navbar />
+        <main className="pt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/men" element={<MensPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
