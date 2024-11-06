@@ -3,24 +3,31 @@ import React from 'react';
 const collections = [
   {
     id: 1,
-    title: 'Formal Collection',
-    description: 'Premium Suits & Business Attire',
+    title: 'Men\'s Collection',
+    description: 'Premium Suits & Casual Wear',
     image: 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=800&q=80',
     category: 'men'
   },
   {
     id: 2,
-    title: 'Casual Wear',
-    description: 'Everyday Comfort & Style',
-    image: 'https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=800&q=80',
-    category: 'men'
+    title: 'Women\'s Collection',
+    description: 'Elegant Dresses & Modern Styles',
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80',
+    category: 'women'
   },
   {
     id: 3,
-    title: 'Accessories',
-    description: 'Watches, Belts & More',
-    image: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=800&q=80',
-    category: 'men'
+    title: 'Kids Collection',
+    description: 'Playful & Comfortable Styles',
+    image: 'https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?auto=format&fit=crop&w=800&q=80',
+    category: 'kids'
+  },
+  {
+    id: 4,
+    title: 'Luxury Watches',
+    description: 'Timeless Elegance',
+    image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=800&q=80',
+    category: 'watches'
   }
 ];
 
@@ -28,8 +35,8 @@ export default function FeaturedCollections() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">Men's Collections</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h2 className="text-3xl font-bold text-center mb-12">Featured Collections</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {collections.map((collection) => (
             <div
               key={collection.id}
