@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, ShoppingCart, Search, User } from 'lucide-react';
 
-const categories = ['Men', 'Women', 'Kids', 'New Arrivals', 'Electronics'];
+const categories = [
+  { name: 'Men', path: '/men' },
+  { name: 'Women', path: '/women' },
+  { name: 'Kids', path: '/kids' },
+  { name: 'New Arrivals', path: '/new-arrivals' },
+  { name: 'Electronics', path: '/electronics' }
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,19 +18,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-gray-900">LUXE</span>
+            <Link to="/" className="text-2xl font-bold text-gray-900">LUXE</Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {categories.map((category) => (
-              <a
-                key={category}
-                href={`#${category.toLowerCase()}`}
+              <Link
+                key={category.name}
+                to={category.path}
                 className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium"
               >
-                {category}
-              </a>
+                {category.name}
+              </Link>
             ))}
           </div>
 
@@ -56,13 +63,14 @@ export default function Navbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {categories.map((category) => (
-              <a
-                key={category}
-                href={`#${category.toLowerCase()}`}
+              <Link
+                key={category.name}
+                to={category.path}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                onClick={() => setIsOpen(false)}
               >
-                {category}
-              </a>
+                {category.name}
+              </Link>
             ))}
           </div>
         </div>
